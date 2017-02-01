@@ -1,0 +1,1178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<!--[if IE]>
+<script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>
+<![endif]-->
+<script type="text/javascript" src="Concurrent.Thread.js"
+	charset="utf-8"></script>
+<script type="text/javascript" src="DuShengGui1.js" charset="utf-8" ></script>
+<script type="text/javascript" charset="utf-8">
+	var arr = [ "image/TB1coVGPXXXXXaRaXXXSutbFXXX.jpg",
+			"image/TB1n.6xPXXXXXaWaXXXXXXXXXXX-520-280.jpg_.webp.jpg",
+			"image/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" ];
+	(function() {
+		DuShengGUI.lunzhuan(arr, "content-three", 0);
+	})();
+	(function() {
+		var ele = {
+			n1 : "na1",
+			n2 : "na2",
+			n3 : "na3"
+		};
+		DuShengGUI.xialaliebiao(ele);
+	})();
+	function qiehuan(value) {
+		$("content-three").style.backgroundImage = "url(" + arr[value] + ")";
+	}
+
+	/*******music start**********/
+	(function() {
+		DuShengGUI.processBar("borderRadius-x", "prograssBar-x",
+				"wp_processBtn-x", "300", "horizontal", window, "wp_playTime",
+				"player");
+		DuShengGUI.processBar("borderRadius-y", "prograssBar-y",
+				"wp_processBtn-y", "60", "vertical", "panel", "volumn",
+				"player");
+	})();
+	/* 双控 开关插件  */
+	(function() {
+		DuShengGUI.OffOn("play", "pause", "player", "prograssBar-x",
+				"wp_processBtn-x", "borderRadius-x", "wp_playTime");
+	})();
+	/* 单控开关插件 */
+	(function() {
+		DuShengGUI.OffToOn("wp_mute", "panel");
+	})();
+	/* 英文切换插件ele1 被绑定的父类  ele2切入的元素  */
+	(function() {
+		var obj = {};
+		obj.prograssBar = "prograssBar-x";
+		obj.wp_processBtn = "wp_processBtn-x";
+		DuShengGUI.handover("handover", "source", "player", "backgroundImage",
+				obj);
+	})();
+	/********music end**************/
+</script>
+
+<link rel="stylesheet" type="text/css" href="reset.css" />
+<style type="text/css">
+/* 
+溢出隐藏万能解决方案
+无非是某些div太长,把所有div的背景颜色显示出来，然后修改宽度即可 */
+/*  div {
+	background-color: red;
+}  */
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.nav {
+	width: 100%;
+	height: 40px;
+	background-color: buttonface;
+	/* margin-bottom: 20px; */
+	position: relative;
+	/* 解决ie6下沉积问题 */
+	z-index: 999;
+	zoom: 1;
+}
+
+input {
+	outline: none;
+}
+
+.nav::after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+
+.nav .left {
+	width: 260px;
+	height: 40px;
+	/* display: inline; */
+	position: relative;
+	top: 0;
+	left: 10px;
+	/* background-color: red; */
+	/* float: left; */
+	margin-left: 96px;
+	line-height: 40px;
+}
+
+.nav .left a:hover {
+	color: red;
+}
+
+.one {
+	color: red;
+}
+
+.nav .left ul,.nav .left ul li {
+	display: inline;
+}
+
+/* * html .nav .left ul,* html .nav  .left ul li {
+	display: inline;
+} */
+/* #nleft li{
+	display: inline;
+} */
+/* *********** */
+.nav .right {
+	width: 620px;
+	height: 40px;
+	/* left: 700px; */
+	border: solid 1px red;
+	/* margin-top: -22px; */
+	/*  float: right;  */
+	margin-right: 0;
+	position: absolute;
+	top: 0;
+	left: 700px;
+}
+
+ * html .nav .right {
+	width: 620px;
+	height: 40px;
+	/* left: 700px; */
+	/* border: solid 1px red; */
+	/* margin-top: -22px; */
+	/* float: right; */
+	/* position: relative; */
+position: absolute;
+	top: 0;
+	left: 600px;
+	z-index: 999;
+} 
+
+.nav .right ul,.nav .right ul li {
+	display: inline;
+	line-height: 40px;
+	margin-right: 15px;
+}
+
+.menu {
+	top: 100%;
+	left: 0;
+	border-left: solid 1px buttonface;
+	border-bottom: solid 1px buttonface;
+	border-right: solid 1px buttonface;
+	position: absolute;
+	z-index: 999;
+	font-size: 12px;
+}
+
+.header {
+	position: relative;
+}
+
+#na1,#na2,#na3 {
+	display: none;
+}
+
+#na2 .na21 {
+	color: black;
+}
+
+#na1 {
+	padding-top: 10px;
+	width: 90px;
+}
+
+#na2 {
+	padding-top: 10px;
+	width: 300px;
+}
+
+#na3 {
+	padding-top: 10px;
+	width: 75px;
+}
+/*********************************  */
+.tt {
+	margin-top: 20px;
+	width: 100%;
+	height: 100px;
+	position: relative;
+	/*  background-color: green;	 */
+	zoom: 1;
+	margin-bottom: 10px;
+}
+
+.tt::after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+
+.login {
+	position: relative;
+	left: 96px;
+	top: 0;
+	width: 960px;
+}
+
+.logo-bd {
+	color: #F4A460;
+	font-size: 32px;
+	font-weight: 900;
+	font-stretch: expanded;
+}
+
+.center {
+	width: 600px;
+	height: 150px;
+	position: relative;
+	/* position: absolute; */
+	left: 300px;
+	top: 0;
+	margin-top: -80px;
+	/* background-color: blue; */
+}
+
+.center .first {
+	width: 140px;
+	height: 28px;
+	position: relative;
+}
+
+/* * html .center .first {
+	width: 140px;
+	height: 28px;
+	position: relative;
+}
+ */
+.center .first ul li {
+	float: left;
+	background-color: red;
+	margin-right: 3px;
+	padding: 5px;
+	margin-bottom: 0;
+}
+
+.center .two {
+	width: 600px;
+	height: 75px;
+	/* float: left; */
+	background-color: gray;
+	position: relative;
+	top: 0;
+}
+
+/* * html .center .two {
+	width: 600px;
+	height: 75px; */
+	/* 	float: left;
+ */
+/* 	background-color: gray;
+	position: relative;
+	top: 0;
+} */
+
+.two .input {
+	width: 458px;
+	height: 51px;
+	background-color: black;
+}
+
+/* * html .two .input {
+	width: 458px;
+	height: 51px;
+	background-color: black;
+}
+ */
+.two .input .search-combobox-input {
+	width: 458px;
+	height: 50px;
+	font-size: 35px;
+	line-height: 45px;
+}
+
+/* * html .two .input .search-combobox-input {
+	width: 458px;
+	height: 50px;
+	font-size: 35px;
+	line-height: 45px;
+}
+ */
+.two .button {
+	width: 100px;
+	height: 52px;
+	background-color: red;
+	position: absolute;
+	left: 460px;
+	top: 1px;
+	text-align: center;
+	line-height: 52px;
+}
+
+/* * html .two .button {
+	width: 100px;
+	height: 52px;
+	background-color: red;
+	position: absolute;
+	left: 460px;
+	top: 1px;
+	text-align: center;
+	line-height: 52px;
+} */
+
+.gaojisousuo {
+	width: 35px;
+	height: 52px;
+	position: absolute;
+	left: 560px;
+	top: 2px;
+}
+
+.center .three {
+	width: 550px;
+	height: 45px;
+	background-color: green;
+	position: relative;
+	top: 0;
+}
+
+/* * html .center .three {
+	width: 550px;
+	height: 45px;
+	background-color: green;
+	position: relative;
+	top: 0;
+} */
+
+.center .three a {
+	padding-right: 5px;
+}
+
+/* * html .center .three a {
+	padding-right: 5px;
+}
+ */
+/* ******************** */
+.content {
+	position: relative;
+	top: 60px;
+}
+
+.content-first {
+	width: 960px;
+	height: 34px;
+	background-color: red;
+	position: relative;
+	margin-top: 30px;
+}
+
+.content-first-one {
+	width: 190px;
+	height: 33px;
+	position: relative;
+	left: 95px;
+	top: 0;
+	background-color: green;
+}
+
+.content-first-one a {
+	line-height: 33px;
+}
+
+.content-first-two {
+	position: relative;
+	left: 300px;
+	margin-top: -25px;
+}
+
+.content-first-two-menu,.content-first-two-menu  li {
+	display: inline;
+}
+
+.content-two {
+	width: 190px;
+	height: 482px;
+	background-color: green;
+	position: relative;
+	left: 95px;
+	top: -1px;
+	/* margin-left: -12px; */
+	/* float: left;
+	margin-left: 47px; */
+}
+
+.content-two-menu {
+	width: 190px;
+	position: relative;
+	background-color: red;
+	margin-bottom: 5px;
+	background-color: red;
+	line-height: 32px;
+}
+
+.content-two-menu span {
+	position: absolute;
+	left: 25px;
+}
+
+.service-arrow {
+	text-align: right;
+	position: absolute;
+	left: 170px;
+}
+
+.content-three {
+	width: 520px;
+	height: 280px;
+	/* background-color: blue;
+	position: relative;
+	left: 22%;
+	top: 100px; */
+	/* float: left;
+	margin-left: 0px; */
+	position: absolute;
+	left: 290px;
+	top: 40px;
+}
+
+.yincang {
+	display: none;
+}
+/*******************  */
+.promo-nav {
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	left: 50%;
+	top: 80%;
+	z-index: 1;
+}
+
+.promo-nav ul li {
+	display: inline;
+}
+
+.promo-nav ul li a {
+	background-color: red;
+	border: red solid 1px;
+	border-radius: 90px;
+}
+
+.content-four {
+	/* position: relative;
+	left: 60%;
+	top: 0; */
+	position: absolute;
+	left: 815px;
+	top: 40px;
+	/* margin-top: -280px;
+	margin-left: 12px; */
+	width: 490px;
+}
+
+.content-five {
+	width: 298px;
+	height: 168px;
+	background-color: white;
+	/* position: relative; */
+	position: absolute;
+	left: 980px;
+	top: 40px;
+	/* margin-top: -280px; */
+	border: solid 1px gray;
+	left: 980px;
+	top: 40px;
+}
+
+.content-six {
+	width: 298px;
+	height: 109px;
+	background-color: green;
+	/* position: relative; */
+	position: absolute;
+	left: 980px;
+	top: 208px;
+}
+
+.content-five-one {
+	width: 268px;
+	height: 105px;
+	position: absolute;
+	/* background-color: green; */
+	left: 15px;
+	top: 2px;
+}
+
+.content-five-one img {
+	position: relative;
+	left: 40%;
+	top: 0;
+}
+
+.content-five-one em {
+	position: relative;
+	left: 40%;
+	top: 0;
+}
+
+.content-five-one a {
+	position: relative;
+	left: 10%;
+	top: 0;
+	color: red;
+}
+
+.content-five-one span {
+	position: relative;
+	left: 10%;
+	top: 10;
+}
+
+.content-five-two {
+	position: absolute;
+	left: 10%;
+	top: 105px;
+}
+
+.content-five-two li {
+	width: 70px;
+	height: 30px;
+	margin-right: 15px;
+	background-color: red;
+	float: left;
+	position: relative;
+	left: 10px;
+	top: 5px;
+}
+
+.content-five-two li  a {
+	line-height: 30px;
+	padding-left: 18px;
+}
+/**********************  */
+.content-six {
+	width: 300px;
+	height: 110px;
+	background-color: blue;
+	position: absolute;
+}
+
+.content-six-position {
+	width: 300px;
+	height: 110px;
+	position: relative;
+}
+
+.content-six .childText {
+	width: 300px;
+	height: 94px;
+	background-color: yellow;
+	position: absolute;
+	left: 0;
+	display: none;
+	font-size: 14px;
+}
+
+.content-six .childText li {
+	margin: 10px auto 10px;
+}
+
+/* * html .content-six .childText li {
+	margin: 10px auto 10px;
+} */
+
+#childText1 {
+	display: block;
+}
+
+.content-six .content-six-li {
+	float: left;
+	width: 48px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: red;
+	text-align: center;
+}
+
+.content-seven {
+	width: 1000px;
+	height: 295px;
+	position: absolute;
+	left: 285px;
+	top: 325px;
+	/* 	background: gray; */
+}
+
+.handover {
+	width: 200px;
+	height: 215px;
+	position: relative;
+	left: 0;
+	top: 0;
+	position: relative;
+	/* overflow: scroll; */
+}
+
+.handover ul li {
+	width: 200px;
+	height: 20px;
+	
+	background-color: white;
+	margin-top: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;word-break: break-all;
+}
+
+.backgroundImage {
+	width: 800px;
+	height: 215px;
+	background-color: white;
+	opacity: 0.3;
+	filter: alpha(opacity =       30);
+	position: absolute;
+	left: 200px;
+	top: 0;
+	background-image: url("music/huyao/t012295ba720cac4acb.jpg");
+}
+/* 音乐播放位置  start */
+.music {
+	width: 1000px;
+	height: 80px;
+	background-color: #DCDCDC;
+	position: absolute;
+	left: 0;
+	top: 215px;
+}
+
+.play-button1 {
+	width: 30px;
+	height: 30px;
+	border: solid 1px gray;
+	border-radius: 90px;
+	-moz-radius: 90px;
+	-webkit-radius: 90px;
+	position: absolute;
+	top: 30px;
+	left: 120px;
+	/* 解决ie radius*/
+	behavior: url(include/ie-css3.htc);
+	position: absolute;
+}
+
+.play-pre {
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	border-left: 3px solid gray;
+	border-top: 10px transparent solid;
+	border-bottom: 10px transparent solid;
+	border-right: 10px gray solid;
+	height: 0;
+}
+
+.play-button2 {
+	width: 40px;
+	height: 40px;
+	border: solid 1px gray;
+	border-radius: 90px;
+	position: absolute;
+	top: 25px;
+	left: 200px;
+	/* 解决ie radius*/
+	/* 	behavior: url(include/ie-css3.htc); */
+}
+
+.play {
+	width: 0;
+	height: 0;
+	position: absolute;
+	left: 15px;
+	top: 5px;
+	border-top: 15px transparent solid;
+	border-left: 15px gray solid;
+	border-bottom: 15px transparent solid;
+}
+
+.pause {
+	width: 8px;
+	height: 20px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	border-left: 5px gray solid;
+	border-right: 5px gray solid;
+	display: none;
+}
+
+.play-button3 {
+	width: 30px;
+	height: 30px;
+	border: solid 1px gray;
+	border-radius: 90px;
+	position: absolute;
+	top: 30px;
+	left: 280px;
+	/* 解决ie radius*/
+	/* behavior: url(include/ie-css3.htc); */
+}
+
+.play-next {
+	border-left: 10px gray solid;
+	border-top: 10px transparent solid;
+	border-bottom: 10px transparent solid;
+	border-right: 3px solid gray;
+	height: 0;
+	width: 0;
+	position: relative;
+	left: 10px;
+	top: 5px;
+	border-top: 10px transparent solid;
+}
+/* 进度条控件  */
+.borderRadius-x {
+	width: 300px;
+	height: 5px;
+	border-radius: 90px;
+	background-color: gray;
+	position: relative;
+	left: 350px;
+	top: 45px;
+	outline-width: thick;
+}
+
+.borderRadius-x  .prograssBar-x {
+	width: 0px; /*不断修改宽度 */
+	height: 3px;
+	border-radius: 90px;
+	background-color: red;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+}
+
+/* * html .prograssBar-x .borderRadius-x {
+	width: 0px; /*不断修改宽度 */
+	/*height: 3px;
+	border-radius: 90px;
+	background-color: red;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+}
+ */
+.borderRadius-x .schedule_btn-x {
+	width: 10px;
+	height: 10px;
+	border-radius: 90px;
+	background-color: green;
+	position: absolute;
+	left: 0; /* 不断修改left*/
+	top: -3px;
+	z-index: 5;
+	position: absolute;
+	left: 0;
+	left: 0;
+	outline-style: none;
+	outline-color: white;
+}
+
+.wp_playTime_singles {
+	width: 50px;
+	height: 30px;
+	position: absolute;
+	left: 680px;
+	top: 25px;
+}
+
+.sound_img {
+	width: 20px;
+	height: 16px;
+	background-image: url("music/icon.png");
+	background-position: -44px 0;
+	background-color: transparent;
+	position: absolute;
+	left: 750px;
+	top: 40px;
+	cursor: point;
+}
+/*垂直拖拽控件  */
+.panel {
+	width: 26px;
+	height: 87px;
+	background-image: url("music/icon.jpg");
+	background-position: -250px 0;
+	/* position: relative;
+	top: -90px;
+	left: -3px; */
+	display: none;
+	position: absolute;
+	left: 745px;
+	top: -50px;
+	position: absolute;
+}
+
+.borderRadius-y {
+	width: 3px;
+	height: 60px;
+	background-color: #FF6347;
+	position: relative;
+	left: 12px;
+	top: 5px;
+	border-radius: 90px;
+	outline-width: 2px;
+	border-radius: 90px;
+}
+
+.borderRadius-y  .prograssBar-y {
+	width: 3px;
+	height: 60px; /*不断修改高度  向上拉高度不断减少*/
+	border-radius: 90px;
+	background-color: gray;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+}
+
+/* * html .borderRadius-y  .prograssBar-y {
+	width: 3px;
+	height: 0; /*不断修改高度  向上拉高度不断减少*/
+/*	border-radius: 90px;
+	background-color: gray;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 3;
+}
+ */
+.borderRadius-y .schedule_btn-y {
+	width: 10px;
+	height: 10px;
+	border-radius: 90px;
+	background-color: #FF6347;
+	position: absolute;
+	left: -3px;
+	top: 60px; /* 不断修改top */
+	z-index: 5;
+	position: absolute;
+	outline-style: none;
+	outline-color: white;
+} /* 音乐播放位置 end */
+</style>
+</head>
+<body>
+	<!-- 导航栏-->
+	<div class="main">
+		<div class="nav">
+			<div class="nav left" id="nleft">
+				<ul>
+					<li><a href="#" class="one">亲,请先登录</a>&nbsp;<a href="#">免费注册
+					</a></li>
+					<!-- 	<li class="login" style="display: none;"> </li> -->
+					<li><a href="#">手机逛淘宝</a></li>
+				</ul>
+			</div>
+			<div class="nav right">
+				<ul>
+					<li class="header"><a href="#" id="n1">我的淘宝</a>
+						<ul class="menu" id="na1">
+							<li><a href="#">已买到的宝贝</a></li>
+							<br />
+							<li><a href="#">我的足迹</a></li>
+						</ul></li>
+					<li class="header"><a href="#" id="n2">购物车</a>
+						<ul class="menu" id="na2">
+							<li>您的购物车里面没有任何宝贝</li>
+							<li><a href="#" class="na21">查看我的购物车</a></li>
+						</ul></li>
+					<li class="header"><a href="#" id="n3">收藏夹</a>
+						<ul class="menu" id="na3">
+							<li><a href="#">收藏的宝贝</a></li>
+							<br />
+							<li><a href="#">店铺</a></li>
+						</ul></li>
+					<li class="header"><a href="#">商品分类</a></li>
+					<li class="header"><a href="#">卖家中心</a></li>
+					<li class="header"><a href="#">联系客服</a></li>
+					<li class="header"><a href="#">网络导航</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="tt">
+			<div class="login">
+				<h1>
+					<a href="#" class="logo-bd">淘宝网</a>
+				</h1>
+				<h1>
+					<a href="#" class="logo-bd">Taobao.com</a>
+				</h1>
+			</div>
+			<div class="center">
+				<div class="first">
+					<ul>
+						<li><a href="#">宝贝</a></li>
+						<li><a href="#">天猫</a></li>
+						<li><a href="#">店铺</a></li>
+					</ul>
+				</div>
+				<div class="two">
+					<div class="input">
+						<input type="text" class="search-combobox-input" />
+					</div>
+					<div class="button">搜索</div>
+					<div class="gaojisousuo">
+						<a href="#">高级搜索</a>
+					</div>
+				</div>
+
+				<div class="three">
+					<a href="#">羽绒服</a> <a href="#">零食</a> <a href="#">四件套</a> <a
+						href="#">吸顶灯</a> <a href="#">保暖内衣</a> <a href="#">靴子</a> <a
+						href="#">沙发</a><a href="#">打底裤</a><a href="#">女包</a> <a href="#">吹风机</a><a
+						href="#">牛仔裤</a><a href="#">热水袋</a><a href="#">奶粉</a><a href="#">洗发水</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="content-first">
+				<div class="content-first-one">
+					<a href="#">主题市场</a>
+				</div>
+				<div class="content-first-two">
+					<ul class="content-first-two-menu">
+						<li><a href="#">天猫</a></li>
+						<li><a href="#">聚划算</a></li>
+						<li><a href="#">天猫超市</a></li>
+					</ul>
+					<ul class="content-first-two-menu">
+						<li>|</li>
+						<li><a href="#">淘抢购</a></li>
+						<li><a href="#">电器城</a></li>
+						<li><a href="#">司法拍卖</a></li>
+						<li><a href="#">特色中国</a></li>
+					</ul>
+					<ul class="content-first-two-menu">
+						<li>|</li>
+						<li><a href="#">飞猪旅行</a></li>
+						<li><a href="#">智能生活</a></li>
+						<li><a href="#">苏宁易购 </a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content-two">
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">女装 </a>/<a href="#">男装
+						</a>/<a href="#">内衣 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">鞋靴 </a>/<a href="#">箱包
+						</a>/<a href="#">配件 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i><span> <a href="#">童装玩具</a>/<a href="#">孕产</a>/<a
+							href="#">用品 </a></span> <i class="tb-icon service-arrow">➤ </i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">家电 </a>/<a href="#">数码
+						</a>/<a href="#">手机 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">美妆</a>/<a href="#">洗护
+						</a>/<a href="#">保健品 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">珠宝 </a>/<a href="#">眼镜
+						</a>/<a href="#">手表 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">运动 </a>/<a href="#">户外
+						</a>/<a href="#">乐器 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">游戏 </a>/<a href="#">动漫
+						</a>/<a href="#">影视 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">美食 </a>/<a href="#">生鲜
+						</a>/<a href="#">零食 </a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">鲜花 </a>/<a href="#">宠物
+						</a>/<a href="#">农资</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">房产</a>/<a href="#">装修
+						</a>/<a href="#">建材</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">家具 </a>/<a href="#">家饰
+						</a>/<a href="#">家纺</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">汽车 </a>/<a href="#">二手车
+						</a>/<a href="#">用品</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">办公 </a>/<a href="#">DIY
+						</a>/<a href="#">五金电子</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">百货</a>/<a href="#">餐厨</a>/<a
+							href="#">家庭保健</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+				<ul class="content-two-menu">
+					<li><i></i> <span><a href="#">学习</a>/<a href="#">卡券</a>/<a
+							href="#">本地服务</a></span> <i class="tb-icon service-arrow">➤</i></li>
+				</ul>
+			</div>
+			<div class="content-three" id="content-three">
+				<div class="promo-nav">
+					<div class="yujiazai" id="yujiazai">
+						<img src="image/TB1BlobNFXXXXXyXXXXXXXXXXXX-34-34.gif">
+					</div>
+					<ul class="yincang" id="yincang">
+						<li><a href="javascript:void(0);" onclick="qiehuan(0)">1</a></li>
+						<li><a href="javascript:void(0);" onclick="qiehuan(1)"
+							name="lick">2</a></li>
+						<li><a href="javascript:void(0);" onclick="qiehuan(2)"
+							name="lick">3</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content-four">
+				<img
+					src="image/TB1GIHSPXXXXXagapXXXXXXXXXX-160-280.jpg_290x290q90_.webp.jpg"
+					alt="图片管理员睡觉了,请稍后再试" />
+			</div>
+			<div class="content-five">
+				<div class="content-five-one">
+					<img src="image/TB1yeWeIFXXXXX5XFXXuAZJYXXX-210-210.png_60x60.jpg"
+						alt="图片管理员睡觉了,请稍后再试" /> <br /> <em>Hi!你好</em> <br /> <a
+						href="#">领会员淘宝币</a><span>或去</span> <a href="#">会员俱乐部</a>
+				</div>
+				<div class="content-five-two">
+					<ul>
+						<li><a href="#">登录</a></li>
+						<li><a href="#">注册</a></li>
+						<li><a href="#">开店</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content-six">
+				<ul class="content-six-position">
+					<li class="content-six-li"><a href="#">公告</a>
+						<ul class="childText" id="childText1">
+							<li class="childText-first-first"><a href="#">不正当谋利规则变更</a>
+								<a href="#">淘宝亲宝贝市场管理规范</a></li>
+							<li><a href="#">淘宝价格发布规范变更</a> <a href="#">店铺相关规则调整变更</a></li>
+						</ul></li>
+					<li class="content-six-li"><a href="#">规则</a>
+						<ul class="childText">
+							<li><a href="#"></a> <a href="#"></a></li>
+							<li><a href="#"></a> <a href="#"></a></li>
+						</ul></li>
+					<li class="content-six-li"><a href="#">论坛</a>
+						<ul class="childText">
+							<li><a href="#"></a> <a href="#"></a></li>
+							<li><a href="#"></a> <a href="#"></a></li>
+						</ul></li>
+					<li class="content-six-li"><a href="#">安全</a>
+						<ul class="childText">
+							<li><a href="#"></a> <a href="#"></a></li>
+							<li><a href="#"></a> <a href="#"></a></li>
+						</ul></li>
+					<li class="content-six-li"><a href="#">公益</a>
+						<ul class="childText">
+							<li><a href="#"></a> <a href="#"></a></li>
+							<li><a href="#"></a> <a href="#"></a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!-- 音乐播放位置-->
+			<div class="content-seven">
+				<!--歌曲选择栏-->
+				<div id="handover" class="handover">
+					<ul>
+						<li><a href="javascript:void(0);" name="music/Believe.mp3"
+							title="music/huyao/t012295ba720cac4acb.jpg">Believe.mp3</a></li>
+						<li><a href="javascript:void(0);"
+							name="music/川田まみ (川田麻美) - 緋色の空 (绯色天空).mp3"
+							title="music/huyao/t014bfd38a8b1bc8cce.jpg">川田まみ (川田麻美) -
+								緋色の空 (绯色天空).mp3</a></li>
+						<li><a href="javascript:void(0);"
+							name="music/浜崎あゆみ - 穿越时空的思念 - 钢琴版纯音乐.mp3"
+							title="music/huyao/t01718b2e0cf7355572.gif">浜崎あゆみ - 穿越时空的思念 -
+								钢琴版纯音乐.mp3</a></li>
+						<li><a href="javascript:void(0);"
+							name="music/绯村柯北、灰老板 - 东流.mp3"
+							title="music/huyao/t01de053d75a8cdfd2a.gif">绯村柯北、灰老板 - 东流.mp3</a></li>
+						<li><a href="javascript:void(0);" name="music/桂子油 - 下沙.mp3"
+							title="music/huyao/t018c4659feeb4466b4.jpg">桂子油 - 下沙.mp3</a></li>
+						<li><a href="javascript:void(0);" name="music/刘瑞琦 - 七里香.mp3"
+							title="music/huyao/t01332e04dfb398f628.jpg">刘瑞琦 - 七里香.mp3</a></li>
+					</ul>
+				</div>
+				<div class="backgroundImage" id="backgroundImage"></div>
+				<div class="music">
+					<div style="display: none;">
+						<video autoplay="true" id="player" volume=0.2 controls> <source
+							src="music/川田まみ (川田麻美) - 緋色の空 (绯色天空).mp3" type="audio/mp3"
+							id="source"></source> </video>
+						<!--video的监听事件受onload的影响,所以只能这样了 -->
+
+						<!-- <script type="text/javascript">
+					var player = document.getElementById("player");
+					/*canplay durationchange  */
+				 	player.addEventListener("ended", function() {
+						
+					}, false); *
+				</script> -->
+					</div>
+					<div class="play-button1" id="play-button1">
+						<div class="play-pre"></div>
+					</div>
+					<div class="play-button2">
+						<div class="play" id="play"></div>
+						<div class="pause" id="pause"></div>
+					</div>
+
+					<div class="play-button3">
+						<div class="play-next"></div>
+					</div>
+					<!--水平拖拽控件 -->
+					<div class="borderRadius-x" id="borderRadius-x">
+						<div class="prograssBar-x" id="prograssBar-x"></div>
+						<!--拖拽按钮-->
+						<a class="schedule_btn-x" id="wp_processBtn-x"></a>
+					</div>
+					<p id="wp_playTime" class="wp_playTime_singles">00.23</p>
+					<div class="sound_img" id="wp_mute"></div>
+					<textarea id="volumn" style="display: none;"></textarea>
+					<!--垂直拖拽控件  -->
+					<!--单控弹框按钮是不该有父子上的语义关系的 因为事件的传递性 -->
+					<div class="panel" id="panel">
+						<div class="borderRadius-y" id="borderRadius-y">
+							<div class="prograssBar-y" id="prograssBar-y"></div>
+							<!--拖拽按钮-->
+							<a class="schedule_btn-y" id="wp_processBtn-y"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 视频播放位置-->
+		<div class="video"></div>
+	</div>
+	<iframe src="eight.html" frameborder="0" width="300" height="300" style="display: none;">对不起,您的浏览器版本问题,导致地图无法显示</iframe>
+</body>
+</html>
